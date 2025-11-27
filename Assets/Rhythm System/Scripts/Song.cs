@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 // Declaring this struct here outside the class allows it to be used across all scripts, quite useful.
@@ -9,6 +10,7 @@ public struct Beat
     }
 // This is a public class, which is how we'll construct songs, classes can be serialized to json. 
 // Technically if we were being sensible this would be a scriptable object, however we want to learn to use json. 
+[Serializable]
 public class Song
 {
     public string songName;
