@@ -6,6 +6,8 @@ using UnityEditor;
 // Following this tutorial https://youtu.be/34736DHWzaI but will need a lot of adapting and further research.
 public class SongEditorWindow : EditorWindow
 {
+    /* This actually probably wants to be an engine thing, rather than a window? The unity custom tool docs are bad and 
+    i don't know if it's best suited to it.*/
     Song song = new Song();
     public string songName = "New Song";
     public AudioClip songAudio;
