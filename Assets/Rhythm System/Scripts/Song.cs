@@ -6,8 +6,14 @@ using System.Collections.Generic;
 // Declaring this struct here outside the class allows it to be used across all scripts, quite useful.
 public struct Beat
 {
-    int Position;
-    int Lane;
+    public int Position;
+    public int Lane;
+    // This is the struct constructor allowing you to do Beat tmp = new Beat(1,3) for example, making a bunch of code cleaner and more intuitive
+    public Beat(int position, int lane)
+    {
+        Position = position;
+        Lane = lane;
+    }
 }
 /* This is a public class, which is how we'll construct songs, classes can be serialized to json. 
 Technically if we were being sensible this would be a scriptable object, however we want to learn to use json. 
@@ -26,10 +32,21 @@ public class Song
     also depending on how we use this we could stop the rhythm system of iterating over the song when we've got the last active beat. (need to think about specific impl details as this could be interpreted in two ways, 
     total song beats, or total beatmap beats) */
     public int totalBeats;
-    /* this is actually how the beats are stored. The beat struct contains a lane and position int, these denote those things, 
+    /* This is actually how the beats are stored. The beat struct contains a lane and position int, these denote those things, 
     in the rhythm manager we "iterate" over the beat map and instantiate the visuals using this beat map, and we use it to ensure the player is hitting the correct beats. */
     public List<Beat> beatMap;
-
+    // This is the song constructor, most of it is self explanatory, however it's important to note that songAudio is currently set to null, if this creates issues which it maybe could? Create a default song audio file and use that.
+    public Song()
+    {
+        songName = "New Song";
+        songAudio = null;
+        songAudioOffset = 0f;
+        bpm = 0;
+        beatLengthInSeconds = 0f;
+        totalBeats = 0;
+        beatMap = new List<Beat>();
+    }
+    // This function loads the song, pretty self explanatory. You pass a C# filepath, which is basically just a string, and it loads the json string, converts it into a song object, then returns the song object.
     public static Song LoadSong(string filepath)
     {
         string json;

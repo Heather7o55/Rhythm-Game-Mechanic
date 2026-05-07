@@ -14,15 +14,4 @@ public class SongEditorWindow : EditorWindow
     public int bpm;
     public int totalBeats;
     public List<Beat> beatMap;
-
-    [MenuItem("Tools/Song Editor")]
-    public static void ShowWindow()
-    {
-        GetWindow(typeof(SongEditorWindow));
-    }
-    private void OnGUI()
-    {
-        GUILayout.Label("Create New Song", EditorStyles.boldLabel);
-        songName = EditorGUILayout.TextField("Song Name", songName);
-    }
 }

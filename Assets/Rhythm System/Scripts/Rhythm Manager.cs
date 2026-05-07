@@ -6,12 +6,11 @@ using UnityEngine.EventSystems;
 public class RhythmManager : MonoBehaviour
 {
     public Song activeSong;
-    public bool songActive = false;
     public float songPosition;
     public float dspDelay;
     void Update()
     {
-        if(!songActive) return;
+        if(activeSong == null) return;
         UpdateSongPosition();
     }
     // Concept taken from blog listed.
