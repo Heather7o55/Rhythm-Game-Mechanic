@@ -35,6 +35,7 @@ public class Song
     /* This is actually how the beats are stored. The beat struct contains a lane and position int, these denote those things, 
     in the rhythm manager we "iterate" over the beat map and instantiate the visuals using this beat map, and we use it to ensure the player is hitting the correct beats. */
     public List<Beat> beatMap;
+    
     // This is the song constructor, most of it is self explanatory, however it's important to note that songAudio is currently set to null, if this creates issues which it maybe could? Create a default song audio file and use that.
     public Song()
     {
@@ -46,6 +47,7 @@ public class Song
         totalBeats = 0;
         beatMap = new List<Beat>();
     }
+
     // This function loads the song, pretty self explanatory. You pass a C# filepath, which is basically just a string, and it loads the json string, converts it into a song object, then returns the song object.
     public static Song LoadSong(string filepath)
     {
@@ -63,6 +65,8 @@ public class Song
         Song song = new Song();
         return song = JsonUtility.FromJson<Song>(json);
     }
+
+    // This functions saves a song, you pass in the song object and a string filepath, converts the song data into json string then saves the json to that filepath.
     public static void SaveSong(Song song, string filepath)
     {
         string json = JsonUtility.ToJson(song, true);

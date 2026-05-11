@@ -21,7 +21,6 @@ public class RhythmManager : MonoBehaviour
     // Concept taken from blog listed.
     public void StartSong()
     {
-        songActive = true;
         dspDelay = (float) AudioSettings.dspTime;
     }
 
