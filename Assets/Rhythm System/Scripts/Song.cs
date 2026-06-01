@@ -29,14 +29,15 @@ public class Song
     // Stole this one from the blog listed in Rhythm Manager, should be useful.
     public float beatLengthInSeconds;
     /* This might seem pointless as in theory you can just calculate this at runtime, but i figure having cached within the song data is just kinda useful, 
-    also depending on how we use this we could stop the rhythm system of iterating over the song when we've got the last active beat. (need to think about specific impl details as this could be interpreted in two ways, 
-    total song beats, or total beatmap beats) */
+    also depending on how we use this we could stop the rhythm system of iterating over the song when we've got the last active beat. 
+    (need to think about specific impl details as this could be interpreted in two ways, total song beats, or total beatmap beats) */
     public int totalBeats;
     /* This is actually how the beats are stored. The beat struct contains a lane and position int, these denote those things, 
     in the rhythm manager we "iterate" over the beat map and instantiate the visuals using this beat map, and we use it to ensure the player is hitting the correct beats. */
     public List<Beat> beatMap;
     
-    // This is the song constructor, most of it is self explanatory, however it's important to note that songAudio is currently set to null, if this creates issues which it maybe could? Create a default song audio file and use that.
+    /* This is the song constructor, most of it is self explanatory, however it's important to note that songAudio is currently set to null, if this creates issues which it maybe could? 
+    Create a default song audio file and use that. */
     public Song()
     {
         songName = "New Song";
@@ -48,7 +49,8 @@ public class Song
         beatMap = new List<Beat>();
     }
 
-    // This function loads the song, pretty self explanatory. You pass a C# filepath, which is basically just a string, and it loads the json string, converts it into a song object, then returns the song object.
+    /* This function loads the song, pretty self explanatory. You pass a C# filepath, which is basically just a string, 
+    and it loads the json string, converts it into a song object, then returns the song object. */
     public static Song LoadSong(string filepath)
     {
         string json;
