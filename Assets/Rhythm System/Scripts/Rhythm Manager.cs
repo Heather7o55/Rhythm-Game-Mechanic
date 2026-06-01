@@ -6,18 +6,16 @@ using System.Linq;
 // Worth us both looking through I think.
 public class RhythmManager : MonoBehaviour
 {
-    
+
     public int score;
     public Song activeSong = new Song();
     public float songPosition;
     public int currentBeat;
     public float dspDelay;
     public AudioSource speaker;
-    void Update()
-    {
+    public string LoadSongFilepath;
+    public string SaveSongFilepath;
 
-    }
-    // Concept taken from blog listed.
     public void UpdateSongPosition()
     {
         if(currentBeat >= activeSong.totalBeats) activeSong.active = false;
@@ -25,7 +23,6 @@ public class RhythmManager : MonoBehaviour
         songPosition = (float) (AudioSettings.dspTime -dspDelay) -activeSong.songAudioOffset;
         currentBeat = (int) (songPosition / activeSong.beatLengthInSeconds);
     }
-    // Concept taken from blog listed.
     public void StartSong()
     {
         activeSong.active = true;
@@ -56,7 +53,14 @@ public class RhythmManager : MonoBehaviour
     {
         return songPosition > lastBeat + activeSong.beatLengthInSeconds;
     }
-
+    public void LoadSong()
+    {
+        activeSong = Song.LoadSong(LoadSongFilepath);
+    }
+    public void SaveSong()
+    {
+        Song.SaveSong(activeSong,SaveSongFilepath);
+    }
 //ALL OF THIS IS BAD CODE, PLEASE REWRITE IT IN THE MORNING JESUS CHRIST
     public bool RhythmKeyPressed()
     {
