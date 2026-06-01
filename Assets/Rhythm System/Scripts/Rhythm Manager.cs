@@ -8,7 +8,7 @@ public class RhythmManager : MonoBehaviour
 {
     
     public int score;
-    public Song activeSong;
+    public Song activeSong = new Song();
     public float songPosition;
     public int currentBeat;
     public float dspDelay;
@@ -20,6 +20,7 @@ public class RhythmManager : MonoBehaviour
     // Concept taken from blog listed.
     public void UpdateSongPosition()
     {
+        if(currentBeat >= activeSong.totalBeats) activeSong.active = false;
         if(!activeSong.active) return;
         songPosition = (float) (AudioSettings.dspTime -dspDelay) -activeSong.songAudioOffset;
         currentBeat = (int) (songPosition / activeSong.beatLengthInSeconds);
