@@ -14,6 +14,14 @@ public struct Beat
         Position = position;
         Lane = lane;
     }
+    public static bool operator ==(Beat i, Beat j)
+    {
+        return i.Equals(j);
+    }
+    public static bool operator !=(Beat i, Beat j)
+    {
+        return !i.Equals(j);
+    }
 }
 /* This is a public class, which is how we'll construct songs, classes can be serialized to json. 
 Technically if we were being sensible this would be a scriptable object, however we want to learn to use json. 
@@ -21,6 +29,7 @@ Technically if we were being sensible this would be a scriptable object, however
 [Serializable]
 public class Song
 {
+    public bool active;
     public string songName;
     public AudioClip songAudio;
     // There is normally a slight offset between the song and it actually starting beats, is worth having even if its normally 0.
@@ -47,6 +56,7 @@ public class Song
         beatLengthInSeconds = 0f;
         totalBeats = 0;
         beatMap = new List<Beat>();
+        active = false;
     }
 
     /* This function loads the song, pretty self explanatory. You pass a C# filepath, which is basically just a string, 

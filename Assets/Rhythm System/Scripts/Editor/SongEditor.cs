@@ -13,7 +13,7 @@ public class SongEditorWindow : RhythmManager
     {
         if(activeSong == null) return;
         UpdateSongPosition();
-        if(RhythmKeyPressed()) AddBeat(GetRhythmKey());
+        if(RhythmKeyPressed() && GetLaneKey() != 0) AddBeat(GetLaneKey());
     }
     public void AddBeat(int lane)
     {
