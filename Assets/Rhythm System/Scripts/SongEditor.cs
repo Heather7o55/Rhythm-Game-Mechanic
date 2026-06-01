@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 // Following this tutorial https://youtu.be/34736DHWzaI but will need a lot of adapting and further research.
 public class SongEditorWindow : RhythmManager
 {
+    public string LoadSongFilepath;
+    public string SaveSongFilepath;
     /* This actually probably wants to be an engine thing, rather than a window? The unity custom tool docs are bad and 
     i don't know if it's best suited to it.*/
     void Update()
@@ -26,5 +28,13 @@ public class SongEditorWindow : RhythmManager
     {
         activeSong.beatLengthInSeconds = 60f / activeSong.bpm;
         activeSong.totalBeats = (int) (activeSong.songAudio.length / activeSong.beatLengthInSeconds);
+    }
+    public void LoadSong()
+    {
+        activeSong = Song.LoadSong(LoadSongFilepath);
+    }
+    public void SaveSong()
+    {
+        Song.SaveSong(activeSong,SaveSongFilepath);
     }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 
 // Declaring this struct here outside the class allows it to be used across all scripts, quite useful.
+[Serializable]
 public struct Beat
 {
     public int Position;
