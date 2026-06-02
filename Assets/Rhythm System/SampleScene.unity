@@ -695,6 +695,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 182005544}
+  - {fileID: 1047208040}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1101,10 +1102,10 @@ MonoBehaviour:
   score: 0
   activeSong:
     active: 0
-    songName: New Song
-    songAudio: {fileID: 8300000, guid: 49c5c2f9e338463278d06859fc14ee1c, type: 3}
+    songName: 125
+    songAudio: {fileID: 0}
     songAudioOffset: 0
-    bpm: 150
+    bpm: 0
     beatLengthInSeconds: 0
     totalBeats: 0
     beatMap: []
@@ -1114,6 +1115,14 @@ MonoBehaviour:
   speaker: {fileID: 1047208038}
   LoadSongFilepath: /home/heather/Song json/OSC.json
   SaveSongFilepath: /home/heather/Song json/OSC.json
+  visuals:
+  - {fileID: 0}
+  - {fileID: 2412840863462103095, guid: bb7082ac97187841c90980e7110ba075, type: 3}
+  - {fileID: 127970354553387485, guid: cdb9475e0042d65289a5d14f7d618a6c, type: 3}
+  - {fileID: 3129277009490010865, guid: 0a93e6bb5c17753c99617460ddcd6c48, type: 3}
+  - {fileID: 4220799522450775481, guid: 2c95c7e8fedcecec98bdab9dd6f61dce, type: 3}
+  playbackMode: 1
+  lastBeat: 0
 --- !u!4 &1047208040
 Transform:
   m_ObjectHideFlags: 0
@@ -1122,12 +1131,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047208037}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 699.15497, y: 268.2459, z: 420.27353}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 541.4736, y: 35.959904, z: 902.4887}
+  m_LocalScale: {x: 2.1473842, y: 2.1473842, z: 2.1473842}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 346841441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1145637278
 GameObject:
@@ -1879,4 +1888,3 @@ SceneRoots:
   - {fileID: 1757738363}
   - {fileID: 346841441}
   - {fileID: 1145637281}
-  - {fileID: 1047208040}
